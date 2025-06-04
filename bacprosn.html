@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bac Pro Systèmes Numériques - Formation et Débouchés</title>
+    <style>
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        /* Introduction avec mise en évidence */
+        .intro {
+            background: linear-gradient(135deg, #e8f4fd, #f1f8ff);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 2rem;
+        }
+
+        .intro h2 {
+            border: none;
+            margin-bottom: 1rem;
+        }
+
+        /* Listes stylisées */
+        .content-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .content-list li:before {
+            content: "▶";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+        }
+
+        .content-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Grille pour les sections */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        /* Highlights pour les informations importantes */
+        .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+
+        .highlight strong {
+            color: #856404;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #3498db;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            margin-top: 2rem;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        /* Animations subtiles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Bouton de retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>Bac Pro Systèmes Numériques</h1>
+                <div class="subtitle">Formation professionnelle - Option RISC & SSIHT</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#programme">Programme</a></li>
+                    <li><a href="#debouches">Débouchés</a></li>
+                    <li><a href="#admission">Admission</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Section Introduction -->
+        <section id="accueil" class="intro">
+            <h2>Présentation du Bac Pro Systèmes Numériques</h2>
+            <p>Le <strong>Baccalauréat Professionnel Systèmes Numériques</strong> est une formation de trois ans qui prépare les élèves aux métiers du numérique et de l'électronique. Cette formation polyvalente combine théorie et pratique pour former des techniciens capables d'intervenir sur les systèmes numériques dans différents secteurs d'activité.</p>
+            <p>Avec deux options de spécialisation - <strong>RISC</strong> (Réseaux Informatiques et Systèmes Communicants) et <strong>SSIHT</strong> (Sûreté et Sécurité des Infrastructures, de l'Habitat et du Tertiaire) - cette formation répond aux besoins croissants du marché du travail dans le domaine du numérique.</p>
+            
+            <div class="highlight">
+                <strong>Objectif principal :</strong> Former des techniciens qualifiés capables d'installer, configurer, maintenir et dépanner les équipements et systèmes numériques.
+            </div>
+        </section>
+
+        <!-- Section Programme -->
+        <section id="programme">
+            <h2>Programme de Formation</h2>
+            <p>La formation s'articule autour d'enseignements généraux et professionnels, complétés par des périodes de formation en milieu professionnel.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Enseignements Généraux</h3>
+                    <ul class="content-list">
+                        <li>Français et Histoire-Géographie</li>
+                        <li>Mathématiques et Sciences Physiques</li>
+                        <li>Langues Vivantes (Anglais obligatoire)</li>
+                        <li>Arts Appliqués et Cultures Artistiques</li>
+                        <li>Éducation Physique et Sportive</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Enseignements Professionnels</h3>
+                    <ul class="content-list">
+                        <li>Analyse et préparation d'une intervention</li>
+                        <li>Réalisation et contrôle</li>
+                        <li>Mise en service et maintenance</li>
+                        <li>Communication technique et relationnelle</li>
+                        <li>Économie-Gestion</li>
+                        <li>Prévention Santé Environnement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Compétences Techniques Développées</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Option RISC</h3>
+                    <ul class="content-list">
+                        <li>Installation et configuration de réseaux</li>
+                        <li>Maintenance des systèmes informatiques</li>
+                        <li>Télécommunications et téléphonie IP</li>
+                        <li>Systèmes de surveillance et d'alarme</li>
+                        <li>Domotique et immotique</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Option SSIHT</h3>
+                    <ul class="content-list">
+                        <li>Systèmes de sécurité électronique</li>
+                        <li>Contrôle d'accès et vidéosurveillance</li>
+                        <li>Systèmes d'alarme incendie</li>
+                        <li>Gestion technique centralisée</li>
+                        <li>Sûreté des bâtiments intelligents</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Débouchés -->
+        <section id="debouches">
+            <h2>Débouchés Professionnels</h2>
+            <p>Le Bac Pro Systèmes Numériques offre de nombreuses opportunités d'emploi dans des secteurs en pleine expansion. Les diplômés peuvent intégrer directement le marché du travail ou poursuivre leurs études.</p>
+            
+            <h3>Métiers Accessibles</h3>
+            <div class="grid">
+                <div class="card">
+                    <h3>Secteur Informatique & Réseaux</h3>
+                    <ul class="content-list">
+                        <li>Technicien en télécommunications</li>
+                        <li>Installateur de réseaux câblés</li>
+                        <li>Technicien helpdesk</li>
+                        <li>Technicien de maintenance informatique</li>
+                        <li>Installateur en téléphonie</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Secteur Sécurité & Domotique</h3>
+                    <ul class="content-list">
+                        <li>Technicien en systèmes de sécurité</li>
+                        <li>Installateur en domotique</li>
+                        <li>Technicien en vidéosurveillance</li>
+                        <li>Technicien en alarmes et détection incendie</li>
+                        <li>Technicien en contrôle d'accès</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Environnements de Travail</h3>
+            <p>Les diplômés peuvent exercer dans diverses structures :</p>
+            <ul class="content-list">
+                <li>Entreprises de services du numérique (ESN)</li>
+                <li>Sociétés d'installation et de maintenance</li>
+                <li>Collectivités territoriales</li>
+                <li>Grandes entreprises (services informatiques internes)</li>
+                <li>Artisans électriciens spécialisés</li>
+                <li>Entreprises de sécurité électronique</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>Salaire indicatif :</strong> Entre 1 600€ et 2 200€ bruts mensuels pour un débutant, avec des perspectives d'évolution rapide selon l'expérience et les spécialisations.
+            </div>
+        </section>
+
+        <!-- Section Admission -->
+        <section id="admission">
+            <h2>Conditions d'Admission</h2>
+            <p>L'admission en Bac Pro Systèmes Numériques est accessible après la classe de 3ème ou dans le cadre d'une réorientation.</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>Prérequis Académiques</h3>
+                    <ul class="content-list">
+                        <li>Niveau 3ème générale, technologique ou professionnelle</li>
+                        <li>Aptitudes en mathématiques et sciences</li>
+                        <li>Intérêt pour les technologies numériques</li>
+                        <li>Capacités de raisonnement logique</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>Qualités Personnelles</h3>
+                    <ul class="content-list">
+                        <li>Goût pour la technologie et l'innovation</li>
+                        <li>Esprit d'analyse et de synthèse</li>
+                        <li>Autonomie et rigueur</li>
+                        <li>Capacité de travail en équipe</li>
+                        <li>Sens du service client</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Modalités d'Inscription</h3>
+            <p>L'inscription se fait via la plateforme <strong>Parcoursup</strong> pour les élèves de 3ème. Les candidatures sont étudiées en fonction :</p>
+            <ul class="content-list">
+                <li>Des résultats scolaires (notamment en mathématiques et sciences)</li>
+                <li>De la motivation exprimée dans la lettre de candidature</li>
+                <li>Des appréciations des professeurs</li>
+                <li>De l'assiduité et du comportement</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>Important :</strong> La formation comprend 22 semaines de stage en entreprise réparties sur les 3 années, permettant une immersion progressive dans le monde professionnel.
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>📍 Lycée Jean Moulin</li>
+                    <li>📍 19 Av. des Martyrs de la Résistance</li>
+                    <li>📍 34500 Béziers</li>
+                    <li>📞 04 67 35 59 35</li>
+                    <li>✉️ ce.0340011c@ac-montpellier.fr</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Liens Utiles</h3>
+                <ul>
+                    <li><a href="#">Portail Candidature</a></li>
+                    <li><a href="#">Témoignages d'Anciens</a></li>
+                    <li><a href="#">Entreprises Partenaires</a></li>
+                    <li><a href="#">Actualités Formation</a></li>
+                    <li><a href="#">Guide de l'Étudiant</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="#">Référentiel de Formation</a></li>
+                    <li><a href="#">Grille Horaire</a></li>
+                    <li><a href="#">Calendrier Scolaire</a></li>
+                    <li><a href="#">Offres de Stage</a></li>
+                    <li><a href="#">Documentation PDF</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lycée Professionnel Numérique - Tous droits réservés | Mentions légales | Plan du site</p>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <a href="#" class="back-to-top">↑</a>
+
+    <script>
+        // Navigation fluide
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Bouton retour en haut
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
