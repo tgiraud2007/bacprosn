@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bac Pro Systèmes Numériques - Option RISC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #a2a9b1;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0645ad;
+            text-decoration: none;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .sidebar {
+            background: #fff;
+            border: 1px solid #a2a9b1;
+            border-radius: 2px;
+            padding: 1rem;
+            height: fit-content;
+            position: sticky;
+            top: 80px;
+        }
+
+        .sidebar h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #000;
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 0.5rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar a {
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            padding: 0.3rem 0;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            background: #fff;
+            border: 1px solid #a2a9b1;
+            border-radius: 2px;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section:target {
+            padding-top: 1rem;
+            margin-top: -1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #000;
+            border-bottom: 3px solid #0645ad;
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem 0;
+            color: #000;
+            border-bottom: 1px solid #a2a9b1;
+            padding-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #000;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
+            color: #333;
+        }
+
+        .intro-box {
+            background: #f6f6f6;
+            border: 1px solid #a2a9b1;
+            border-radius: 3px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            float: right;
+            width: 300px;
+            margin-left: 1rem;
+        }
+
+        .intro-box h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            text-align: center;
+            background: #eaecf0;
+            margin: -1.5rem -1.5rem 1rem -1.5rem;
+            padding: 0.8rem;
+            border-bottom: 1px solid #a2a9b1;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .info-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #eaecf0;
+            font-size: 0.9rem;
+        }
+
+        .info-table td:first-child {
+            font-weight: bold;
+            width: 30%;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .course-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 1.5rem;
+        }
+
+        .course-card h4 {
+            color: #0645ad;
+            margin-top: 0;
+        }
+
+        .hours-badge {
+            background: #e1f5fe;
+            color: #01579b;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .competency-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .competency-item {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            border-radius: 3px;
+        }
+
+        .career-path {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .career-item {
+            background: #fff3e0;
+            border: 1px solid #ffcc02;
+            border-radius: 5px;
+            padding: 1rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .testimonial {
+            background: #f0f8ff;
+            border-left: 4px solid #0645ad;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-style: normal;
+            color: #666;
+        }
+
+        .contact-info {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .useful-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .link-item {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 3px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .link-item a {
+            color: #1976d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-item a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #eaecf0;
+            border-top: 1px solid #a2a9b1;
+            padding: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #0645ad;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .intro-box {
+                float: none;
+                width: 100%;
+                margin: 1rem 0;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .career-path {
+                flex-direction: column;
+            }
+
+            .useful-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#accueil" class="logo">📚 BacPro-SN.fr</a>
+            <button class="nav-toggle">☰</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#accueil">🏠 Accueil</a></li>
+                <li><a href="#contenu-formation">📖 Contenu de la formation</a></li>
+                <li><a href="#stages">🏢 Stages en entreprise</a></li>
+                <li><a href="#competences">🎯 Compétences acquises</a></li>
+                <li><a href="#debouches">🚀 Débouchés</a></li>
+                <li><a href="#contact">📞 Contact</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <section id="accueil" class="section">
+                <h1>Bac Professionnel Systèmes Numériques<br>Option RISC</h1>
+                
+                <div class="intro-box">
+                    <h3>Bac Pro SN Option RISC</h3>
+                    <table class="info-table">
+                        <tr>
+                            <td>Durée</td>
+                            <td>3 ans</td>
+                        </tr>
+                        <tr>
+                            <td>Niveau d'entrée</td>
+                            <td>Après la 3ème</td>
+                        </tr>
+                        <tr>
+                            <td>Type de diplôme</td>
+                            <td>Baccalauréat professionnel</td>
+                        </tr>
+                        <tr>
+                            <td>Modalité</td>
+                            <td>Formation initiale ou apprentissage</td>
+                        </tr>
+                        <tr>
+                            <td>Stages</td>
+                            <td>22 semaines sur 3 ans</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="clearfix">
+                    <p>Le <strong>Baccalauréat Professionnel Systèmes Numériques option RISC</strong> (Réseaux Informatiques et Systèmes Communicants) est une formation de trois ans qui prépare les étudiants aux métiers techniques du numérique et des télécommunications.</p>
+
+                    <p>Cette formation professionnalisante combine enseignements généraux et techniques spécialisés, avec une forte composante pratique grâce aux stages en entreprise et aux travaux pratiques en laboratoire.</p>
+
+                    <h3>Objectifs de la formation</h3>
+                    <p>Le Bac Pro SN option RISC vise à former des techniciens capables de :</p>
+                    <ul>
+                        <li>Installer, configurer et maintenir des réseaux informatiques</li>
+                        <li>Gérer des systèmes de communication et de sécurité</li>
+                        <li>Intervenir sur des équipements électroniques et numériques</li>
+                        <li>Assurer le support technique auprès des utilisateurs</li>
+                        <li>Participer à la cybersécurité des systèmes d'information</li>
+                    </ul>
+
+                    <h3>Public visé</h3>
+                    <p>Cette formation s'adresse aux élèves issus de 3ème générale, technologique ou prépa-métiers, passionnés par les nouvelles technologies, l'informatique et les réseaux. Elle convient particulièrement aux profils pratiques souhaitant une insertion professionnelle rapide tout en gardant des possibilités de poursuites d'études.</p>
+                </div>
+            </section>
+
+            <section id="contenu-formation" class="section">
+                <h2>Contenu de la formation</h2>
+                
+                <p>La formation est organisée autour d'enseignements généraux et professionnels, répartis sur trois années d'études.</p>
+
+                <h3>Enseignements généraux</h3>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <h4>Français</h4>
+                        <span class="hours-badge">120h sur 3 ans</span>
+                        <p>Expression écrite et orale, analyse de textes, préparation aux épreuves du baccalauréat.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>Mathématiques</h4>
+                        <span class="hours-badge">105h sur 3 ans</span>
+                        <p>Mathématiques appliquées aux domaines professionnels, statistiques, géométrie.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>Histoire-Géographie</h4>
+                        <span class="hours-badge">85h sur 3 ans</span>
+                        <p>Culture générale, citoyenneté, géopolitique contemporaine.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>Langues vivantes</h4>
+                        <span class="hours-badge">70h sur 3 ans</span>
+                        <p>Anglais obligatoire, communication professionnelle internationale.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>EPS</h4>
+                        <span class="hours-badge">75h sur 3 ans</span>
+                        <p>Éducation physique et sportive, développement personnel.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>Arts appliqués</h4>
+                        <span class="hours-badge">30h sur 3 ans</span>
+                        <p>Culture artistique, design, communication visuelle.</p>
+                    </div>
+                </div>
+
+                <h3>Enseignements professionnels</h3>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <h4>🌐 Réseaux informatiques</h4>
+                        <span class="hours-badge">180h sur 3 ans</span>
+                        <p>Installation, configuration et maintenance des réseaux locaux et étendus. Protocoles TCP/IP, routage, commutation.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>🔒 Cybersécurité</h4>
+                        <span class="hours-badge">90h sur 3 ans</span>
+                        <p>Sécurisation des systèmes d'information, pare-feu, détection d'intrusions, sensibilisation aux risques.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>🏠 Domotique et IoT</h4>
+                        <span class="hours-badge">120h sur 3 ans</span>
+                        <p>Systèmes automatisés, objets connectés, gestion intelligente des bâtiments.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>🔧 Maintenance et dépannage</h4>
+                        <span class="hours-badge">100h sur 3 ans</span>
+                        <p>Diagnostic de pannes, réparation d'équipements, maintenance préventive et curative.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>📡 Systèmes de communication</h4>
+                        <span class="hours-badge">95h sur 3 ans</span>
+                        <p>Téléphonie, vidéosurveillance, contrôle d'accès, systèmes d'alarme.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>⚡ Électronique appliquée</h4>
+                        <span class="hours-badge">85h sur 3 ans</span>
+                        <p>Circuits électroniques, composants, mesures et tests, câblage structuré.</p>
+                    </div>
+                </div>
+
+                <h3>Travaux pratiques et projets</h3>
+                <p>Une large part de la formation est consacrée aux travaux pratiques en laboratoire équipé de matériel professionnel : switches, routeurs, serveurs, équipements de sécurité, systèmes domotiques, etc.</p>
+                
+                <p>Les élèves réalisent également des projets concrets tout au long de leur formation, en équipe ou individuellement, permettant de mettre en pratique les compétences acquises.</p>
+            </section>
+
+            <section id="stages" class="section">
+                <h2>Stages en entreprise (PFMP)</h2>
+                
+                <p>Les <strong>Périodes de Formation en Milieu Professionnel</strong> représentent un total de <strong>22 semaines</strong> réparties sur les trois années de formation :</p>
+                
+                <div class="course-grid">
+                    <div class="course-card">
+                        <h4>Première année</h4>
+                        <span class="hours-badge">6 semaines</span>
+                        <p>Découverte du milieu professionnel, observation des pratiques, premières missions d'assistance.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>Deuxième année</h4>
+                        <span class="hours-badge">8 semaines</span>
+                        <p>Participation active aux projets, mise en pratique des compétences techniques acquises.</p>
+                    </div>
+                    <div class="course-card">
+                        <h4>Terminale</h4>
+                        <span class="hours-badge">8 semaines</span>
+                        <p>Autonomie dans les missions, préparation de l'insertion professionnelle ou de la poursuite d'études.</p>
+                    </div>
+                </div>
+
+                <h3>Objectifs des stages</h3>
+                <ul>
+                    <li>Acquérir une expérience professionnelle concrète</li>
+                    <li>Développer les compétences techniques en situation réelle</li>
+                    <li>Comprendre le fonctionnement de l'entreprise</li>
+                    <li>Créer un réseau professionnel</li>
+                    <li>Affiner le projet professionnel</li>
+                    <li>Valider les compétences pour l'obtention du diplôme</li>
+                </ul>
+
+                <h3>Exemples de missions en entreprise</h3>
+                <div class="competency-list">
+                    <div class="competency-item">
+                        <h4>Installation réseau</h4>
+                        <p>Câblage, configuration de switches et routeurs, tests de connectivité</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>Support utilisateur</h4>
+                        <p>Assistance téléphonique, dépannage matériel et logiciel, formation des utilisateurs</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>Maintenance préventive</h4>
+                        <p>Vérification des équipements, mise à jour des systèmes, surveillance des performances</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>Projets domotique</h4>
+                        <p>Installation de systèmes intelligents, programmation d'automates, tests de fonctionnement</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="competences" class="section">
+                <h2>Compétences acquises</h2>
+                
+                <h3>Compétences techniques</h3>
+                <div class="competency-list">
+                    <div class="competency-item">
+                        <h4>🔧 Installation et configuration</h4>
+                        <p>Mise en place de réseaux informatiques, configuration d'équipements actifs, paramétrage de systèmes</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>🔍 Diagnostic et dépannage</h4>
+                        <p>Identification de pannes, utilisation d'outils de mesure, résolution de problèmes techniques</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>🛡️ Sécurisation des systèmes</h4>
+                        <p>Mise en place de solutions de sécurité, gestion des accès, surveillance des menaces</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>📊 Administration réseau</h4>
+                        <p>Gestion des utilisateurs, surveillance des performances, sauvegarde et restauration</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>🏗️ Câblage structuré</h4>
+                        <p>Installation de câblages informatiques, respect des normes, tests de certification</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>📱 Technologies émergentes</h4>
+                        <p>IoT, cloud computing, systèmes mobiles, technologies sans fil</p>
+                    </div>
+                </div>
+
+                <h3>Compétences transversales</h3>
+                <div class="competency-list">
+                    <div class="competency-item">
+                        <h4>💬 Communication</h4>
+                        <p>Relation client, rédaction de rapports techniques, présentation de solutions</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>🎯 Autonomie</h4>
+                        <p>Gestion de projets, prise d'initiatives, résolution de problèmes en autonomie</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>👥 Travail en équipe</h4>
+                        <p>Collaboration sur des projets, partage de connaissances, esprit d'équipe</p>
+                    </div>
+                    <div class="competency-item">
+                        <h4>📚 Veille technologique</h4>
+                        <p>Suivi des évolutions techniques, autoformation, adaptation aux nouvelles technologies</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="debouches" class="section">
+                <h2>Débouchés</h2>
+                
+                <h3>Poursuites d'études</h3>
+                <div class="career-path">
+                    <div class="career-item">
+                        <h4>🎓 BTS CIEL</h4>
+                        <p><strong>Cybersécurité, Informatique et réseaux, ÉLectronique</strong><br>
+                        Formation de niveau Bac+2 pour approfondir les compétences techniques.</p>
+                    </div>
+                    <div class="career-item">
+                        <h4>🎓 BTS SIO</h4>
+                        <p><strong>Services Informatiques aux Organisations</strong><br>
+                        Spécialisation en développement d'applications ou administration de réseaux.</p>
+                    </div>
+                    <div class="career-item">
+                        <h4>🎓 BTS Électrotechnique</h4>
+                        <p>Formation complémentaire en systèmes électriques et automatisés.</p>
+                    </div>
+                </div>
+
+                <h3>Insertion professionnelle directe</h3>
+                <div class="career-path">
+                    <div class="career-item">
+                        <h4>🔧 Technicien réseau</h4>
+                        <p>Installation, maintenance et dépannage des infrastructures réseau.</p>
+                    </div>
+                    <div class="career-item">
+                        <h4>🏠 Installateur domotique</h4>
+                        <p>Mise en place de systèmes intelligents dans les bâtiments.</p>
+                    </div>
+                    <div class="career-item">
+                        <h4>💻 Support informatique</h4>
+                        <p>Assistance technique auprès des utilisateurs, dépannage matériel et logiciel.</p>
+                    </div>
+                    <div class="career-item">
+                        <h4>📡 Technicien télécom</h4>
+                        <p>Installation et maintenance des équipements de télécommunications.</p>
+                    </div>
+                    <div class="career-item">
+                        <h4>🛡️ Technicien cybersécurité</h4>
+                        <p>Surveillance et protection des systèmes d'information.</p>
+                    </div>
+                    <div class="career-item">
+                        <h4>🔌 Câbleur réseau</h4>
+                        <p>Spécialiste du câblage informatique et des infrastructures.</p>
+                    </div>
+                </div>
+
+                <h3>Secteurs d'activité</h3>
+                <ul>
+                    <li><strong>Entreprises de services numériques (ESN)</strong></li>
+                    <li><strong>Intégrateurs et installateurs</strong></li>
+                    <li><strong>Constructeurs d'équipements</strong></li>
+                    <li><strong>Administrations et collectivités</strong></li>
+                    <li><strong>Grandes entreprises (service informatique interne)</strong></li>
+                    <li><strong>Opérateurs de télécommunications</strong></li>
+                </ul>
+            </section>
+
+            
